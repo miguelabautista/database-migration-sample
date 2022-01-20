@@ -1,10 +1,14 @@
 package another
 
+import javax.transaction.Transactional
+
 class PruebaController {
 
-    def index() {
-        new Prueba(name: 'miguel', lastName: 'bautista').save(flush: true)
+    def prService
 
-        render "my name is ${Prueba.last().name}"
+    def index() {
+        def va = prService.create()
+
+        render "my name is ${va}"
     }
 }
